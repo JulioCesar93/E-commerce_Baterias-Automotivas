@@ -1,9 +1,11 @@
 package com.jcs.BateriaStore.services.validation;
 
+import com.jcs.BateriaStore.dtos.EnderecoDto;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-//(url="viacep.com.br/ws/", name="viacep")
+@FeignClient(url="viacep.com.br/ws/", name="viacep")
 public interface ViaCepService {
 
     @GetMapping("/{cep}/json/")
