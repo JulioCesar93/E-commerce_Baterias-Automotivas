@@ -8,7 +8,6 @@ import java.util.Set;
 
 public class Order {
 
-
     private Long id;
     private Instant moment;
     private StatusOrder status;

@@ -5,6 +5,5 @@ public class StateDto {
     private Long id;
     private String name;
     private Long countryId;
-
 }
 
