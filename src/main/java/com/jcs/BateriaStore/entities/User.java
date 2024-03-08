@@ -1,10 +1,10 @@
-package com.jcs.BateriaStore.entities.enums;
+package com.jcs.BateriaStore.entities;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Usuario {
+public class User {
 
     private Long id;
     private String firstName;

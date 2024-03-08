@@ -3,12 +3,12 @@ package com.jcs.BateriaStore.entities;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Produto {
+public class Product {
 
     private Long id;
-    private Categoria categoria;
-    private String sku; //peso
     private String name;
+    private Category category;
+    private String sku; //peso
     private String description;
     private BigDecimal unitPrice;
     private String imageUrl;

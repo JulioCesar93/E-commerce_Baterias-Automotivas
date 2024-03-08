@@ -1,4 +1,4 @@
-package com.jcs.BateriaStore.entities.enums;
+package com.jcs.BateriaStore.entities;
 
 public class Endereco {
 
@@ -9,5 +9,5 @@ public class Endereco {
     private String bairro;
     private String localidade;
     private String uf;
-    private Usuario user;
+    private User user;
 }
