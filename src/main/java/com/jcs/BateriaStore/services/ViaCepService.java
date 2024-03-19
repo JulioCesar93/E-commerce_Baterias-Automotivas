@@ -1,4 +1,4 @@
-package com.jcs.BateriaStore.services.validation;
+package com.jcs.BateriaStore.services;
 
 import com.jcs.BateriaStore.dtos.EnderecoDto;
 //import org.springframework.cloud.openfeign.FeignClient;
