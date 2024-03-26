@@ -1,6 +1,7 @@
 package com.jcs.BateriaStore.entities;
 
 import jakarta.persistence.*;
+// UserDetails //import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
 import java.time.LocalDate;
