@@ -20,8 +20,8 @@ public class Category implements Serializable {
     private Long id;
 
     @Column(name = "category_name")
+    private String name;
 
     @OneToMany(mappedBy = "category")
-    private String name;
     private Set<Product> products;
 }

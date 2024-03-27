@@ -1,12 +1,10 @@
 package com.jcs.BateriaStore.entities;
 
 import jakarta.persistence.*;
-// UserDetails //import org.springframework.security.core.userdetails.UserDetails;
-
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class User implements Serializable {
 
@@ -25,8 +23,17 @@ public class User implements Serializable {
     private String email;
     private String password;
 
+    //Mapear user e Profile
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "tb_user_profile",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "profile_id"))
+    private Set<Profile> profile = new HashSet<>();
+
+    //Endereço-Cliente
     @OneToMany(mappedBy = "user")
     public List<Endereco> enderecoList = new ArrayList<>();
+
 
 }
         
