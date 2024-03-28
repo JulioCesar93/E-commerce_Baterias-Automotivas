@@ -1,6 +1,6 @@
 package com.jcs.BateriaStore.dtos;
 
-public class UserUpdateDto extends UserDto {
-    
+import com.jcs.BateriaStore.services.validation.UserUpdateValid;
 
-}
+@UserUpdateValid
+public class UserUpdateDto extends UserDto {}

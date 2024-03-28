@@ -41,7 +41,7 @@ public class UserDto implements Serializable {
         cpf = entity.getCpf();
         birthDay = entity.getBirthDay();
         phone = entity.getPhone();
-        entity.getProfiles().forEach(role -> this.profiles.add(new ProfileDto(profile)));
+        entity.getProfile().forEach(profile -> this.profile.add(new ProfileDto(profile)));
         //entity.getEnderecoList().forEach(endereco -> this.enderecoList.add(new EnderecoDto(endereco)));
     }
 }

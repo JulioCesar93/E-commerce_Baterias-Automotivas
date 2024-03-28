@@ -1,10 +1,12 @@
 package com.jcs.BateriaStore.services.validation;
 
+import com.jcs.BateriaStore.dtos.UserUpdateDto;
 import com.jcs.BateriaStore.repositories.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class UserUpdateValidator {
+public class UserUpdateValidator implements ConstraintValidator<UserUpdateValid, UserUpdateDto> {
 
     @Autowired
     private HttpServletRequest request;
@@ -13,6 +15,6 @@ public class UserUpdateValidator {
     private UserRepository repository;
 
     @Override
-    public void initialize(UserUpdateValid ann) {
+    public void initialize(UserUpdateValid validAll) {
     }
 }
