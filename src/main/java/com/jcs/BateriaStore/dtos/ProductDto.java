@@ -1,11 +1,20 @@
 package com.jcs.BateriaStore.dtos;
 
 import com.jcs.BateriaStore.entities.Product;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class ProductDto {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class ProductDto implements Serializable {
 
     private Long id;
     private String sku; //peso
@@ -19,6 +28,18 @@ public class ProductDto {
     private Date lastUpdated;
     private CategoryDto category;
 
-    public ProductDto(Product entity) {}
+    public ProductDto (Product entity) {
+        id = entity.getId();
+        sku = entity.getSku();
+        name = entity.getName();
+        description = entity.getDescription();
+        unitPrice = entity.getUnitPrice();
+        imageUrl = entity.getImageUrl();
+        favorite = entity.getFavorite();
+        unitsInStock = entity.getUnitsInStock();
+        dateCreated = entity.getDateCreated();
+        lastUpdated = entity.getLastUpdated();
+        category = new CategoryDto(entity.getCategory());
+    }
 }
 

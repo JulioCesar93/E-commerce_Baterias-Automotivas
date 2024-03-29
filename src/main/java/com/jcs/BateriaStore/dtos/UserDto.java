@@ -21,17 +21,22 @@ import java.util.Set;
 public class UserDto implements Serializable {
 
     private Long id;
+
     @NotBlank
     private String firstName;
     private String lastName;
     private String cpf;
     private String phone;
+
     @JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate birthDay;
+
     @NotBlank
     @Email
     private String email;
-    Set<ProfileDto> roles = new HashSet<>();
+    Set<ProfileDto> profiles = new HashSet<>();
+    Set<EnderecoDto> enderecoList = new HashSet<>();
+
 
     public UserDto(User entity) {
         id = entity.getId();
@@ -41,7 +46,7 @@ public class UserDto implements Serializable {
         cpf = entity.getCpf();
         birthDay = entity.getBirthDay();
         phone = entity.getPhone();
-        entity.getProfile().forEach(profile -> this.profile.add(new ProfileDto(profile)));
-        //entity.getEnderecoList().forEach(endereco -> this.enderecoList.add(new EnderecoDto(endereco)));
+        entity.getProfiles().forEach(profile -> this.profiles.add(new ProfileDto(profile)));
+        entity.getEnderecoList().forEach(endereco -> this.enderecoList.add(new EnderecoDto(endereco)));
     }
 }

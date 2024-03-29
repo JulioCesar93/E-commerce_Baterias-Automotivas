@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -22,7 +23,6 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String firstName;
     private String lastName;
     private String cpf;
@@ -30,16 +30,18 @@ public class User implements Serializable {
 
     @Column(name = "birth_day")
     private LocalDate birthDay;
+
     @Column(unique = true)
     private String email;
     private String password;
+    private Profile profile;
 
     //Mapear user e Profile
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "tb_user_profile",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "profile_id"))
-    private Set<Profile> profile = new HashSet<>();
+    private Set<Profile> profiles = new HashSet<>();
 
     //Endereço-Cliente
     @OneToMany(mappedBy = "user")
@@ -49,6 +51,7 @@ public class User implements Serializable {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return profile.stream().map(role -> new SimpleGrantedAuthority(profile.getAuthority()))
                 .collect(Collectors.toList());
+    }
 
         //Find DTO's
         public String getUsername () {
@@ -71,4 +74,3 @@ public class User implements Serializable {
             return true;
         }
     }
-}
