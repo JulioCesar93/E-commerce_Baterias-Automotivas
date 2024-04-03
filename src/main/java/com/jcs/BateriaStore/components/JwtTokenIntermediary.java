@@ -24,6 +24,23 @@ public class JwtTokenIntermediary implements TokenEnhancer {
 
     @Override
     public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
+
+        User user = userRepository.findByEmail(authentication.getName());
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("id", user.getId());
+        map.put("firstName", user.getFirstName());
+        map.put("lastName", user.getLastName());
+        map.put("email", user.getEmail());
+        map.put("username", user.getUsername());
+        map.put("cpf", user.getCpf());
+        map.put("birthDay", user.getBirthDay());
+        map.put("phone", user.getPhone());
+        map.put("roles", user.getProfiles());
+
+        DefaultOAuth2AccessToken token = (DefaultOAuth2AccessToken) accessToken;
+        token.setAdditionalInformation(map);
+
         return accessToken;
     }
 }
