@@ -1,4 +1,4 @@
-package com.jcs.BateriaStore.controllers.exceptions;
+package com.jcs.BateriaStore.controllers;
 
 import com.jcs.BateriaStore.services.EnderecoService;
 import com.jcs.BateriaStore.services.ViaCepService;

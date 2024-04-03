@@ -1,4 +1,4 @@
-package com.jcs.BateriaStore.controllers.exceptions;
+package com.jcs.BateriaStore.controllers;
 
 import com.jcs.BateriaStore.dtos.UserDto;
 import com.jcs.BateriaStore.services.UserService;
