@@ -10,3 +10,5 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 }
+
+//Add "Mapping" por /id: Get, Put, Post e Delete

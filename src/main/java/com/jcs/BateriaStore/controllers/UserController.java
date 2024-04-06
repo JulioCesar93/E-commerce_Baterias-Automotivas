@@ -19,8 +19,7 @@ public class UserController {
 
     @GetMapping (value = "/{id}")
     public ResponseEntity<List<UserDto>> findAll() {
-        List<UserDto> list = service.findAll();
-        return ResponseEntity.ok().body(list);
+        return null;
     }
 
     //POST

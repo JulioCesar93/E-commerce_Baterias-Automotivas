@@ -10,3 +10,5 @@ public class StateController {
     @Autowired
     private StateService service;
 }
+
+//Add Get mapping ***
