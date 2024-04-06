@@ -1,9 +1,6 @@
 package com.jcs.BateriaStore.dtos;
 
 import com.jcs.BateriaStore.entities.Endereco;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
