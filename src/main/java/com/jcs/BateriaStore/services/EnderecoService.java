@@ -5,8 +5,12 @@ import com.jcs.BateriaStore.entities.Endereco;
 import com.jcs.BateriaStore.entities.User;
 import com.jcs.BateriaStore.repositories.EnderecoRepository;
 import com.jcs.BateriaStore.repositories.UserRepository;
+import com.jcs.BateriaStore.services.exceptions.ExceptionBD;
 import com.jcs.BateriaStore.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,7 +42,49 @@ public class EnderecoService {
         Endereco entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
         return new EnderecoDto(entity);
     }
+
+
+    public EnderecoDto insert(EnderecoDto dto) {
+        Endereco entity = new Endereco();
+
+        entity.setCep(dto.getCep());
+        entity.setBairro(dto.getBairro());
+        entity.setComplemento(dto.getComplemento());
+        entity.setLogradouro(dto.getLogradouro());
+        entity.setLocalidade(dto.getLocalidade());
+
+        User user = new User();
+        user.setId(dto.getUserId());
+        entity.setUser(user);
+
+        entity = repository.save(entity);
+        return new EnderecoDto(entity);
+    }
+
+    public EnderecoDto update(Long id, EnderecoDto dto) {
+        try {
+            Endereco entity = repository.getReferenceById(id);
+            entity.setCep(dto.getCep());
+            entity.setBairro(dto.getBairro());
+            entity.setComplemento(dto.getComplemento());
+            entity.setLogradouro(dto.getLogradouro());
+            entity.setLocalidade(dto.getLocalidade());
+            entity = repository.save(entity);
+            return new EnderecoDto(entity);
+        } catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException("ID não encontrado " + id);
+        }
+    }
+
+    public void delete(Long id) {
+        try {
+            repository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResourceNotFoundException("ID mão encontrado " + id);
+        } catch (DataIntegrityViolationException e) {
+            throw new ExceptionBD("Integrity violation");
+        }
+    }
 }
 
 //Add Transactional annotation
-// insert, update, delete enderecoDto

@@ -6,11 +6,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StateDto {
+public class StateDto implements Serializable {
 
     private Long id;
     private String name;
@@ -22,5 +24,3 @@ public class StateDto {
         countryId = entity.getCountry().getId();
     }
 }
-
-
