@@ -20,6 +20,12 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>2.7.7</version>
+		</dependency>
+
+		<dependency>
 			<groupId>jakarta.persistence</groupId>
 			<artifactId>jakarta.persistence-api</artifactId>
 			<version>3.1.0</version>
@@ -49,6 +55,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-oauth2-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.1.8.RELEASE</version>
 		</dependency>
 
 		<!-- <dependency>
@@ -113,32 +125,32 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- <dependency>
+		<dependency>
 			<groupId>com.gtbr</groupId>
 			<artifactId>via-cep</artifactId>
 			<version>1.0.0</version>
 		</dependency>
 
-		<repositories>
-			<repository>
-				<id>repsy</id>
-				<url>https://repo.repsy.io/mvn/thalles/via-cep</url>
-			</repository>
-		</repositories> -->
+
 
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
-			<!--<dependency>
+			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>${spring-cloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
-			</dependency> -->
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
+	<repositories>
+		<repository>
+			<id>repsy</id>
+			<url>https://repo.repsy.io/mvn/thalles/via-cep</url>
+		</repository>
+	</repositories>
 	<build>
 		<plugins>
 			<plugin>
@@ -152,6 +164,7 @@
 						</exclude>
 					</excludes>
 				</configuration>
+
 			</plugin>
 		</plugins>
 	</build>

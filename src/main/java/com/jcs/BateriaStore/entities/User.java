@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User implements Serializable {
+public class User implements Serializable, UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,11 +48,10 @@ public class User implements Serializable {
     public List<Endereco> enderecoList = new ArrayList<>();
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return profile.stream().map(role -> new SimpleGrantedAuthority(profile.getAuthority()))
+    public Collection<? extends GrantedAuthority> getAuthorities () {
+        return profiles.stream().map(profile -> new SimpleGrantedAuthority(profile.getAuthority()))
                 .collect(Collectors.toList());
     }
-
         //Find DTO's
         public String getUsername () {
             return email;

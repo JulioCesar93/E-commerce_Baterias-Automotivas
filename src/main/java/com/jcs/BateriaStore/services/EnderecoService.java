@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,24 +27,26 @@ public class EnderecoService {
     @Autowired
     private UserRepository userRepository;
 
+    @Transactional(readOnly = true)
     public List<EnderecoDto> findAll() {
         List<Endereco> list = repository.findAll();
         return list.stream().map(x -> new EnderecoDto(x)).collect(Collectors.toList());
     }
-
+    @Transactional(readOnly = true)
     public List<EnderecoDto> getByUserId(Long userId) {
         User user = userRepository.getReferenceById(userId);
         List<Endereco> list = repository.findbyUserId(user);
         return list.stream().map(x -> new EnderecoDto(x)).collect(Collectors.toList());
     }
 
+    @Transactional
     public EnderecoDto findById(Long id) {
         Optional<Endereco> obj = repository.findById(id);
         Endereco entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
         return new EnderecoDto(entity);
     }
 
-
+    @Transactional
     public EnderecoDto insert(EnderecoDto dto) {
         Endereco entity = new Endereco();
 
@@ -61,6 +64,7 @@ public class EnderecoService {
         return new EnderecoDto(entity);
     }
 
+    @Transactional
     public EnderecoDto update(Long id, EnderecoDto dto) {
         try {
             Endereco entity = repository.getReferenceById(id);
@@ -86,5 +90,3 @@ public class EnderecoService {
         }
     }
 }
-
-//Add Transactional annotation

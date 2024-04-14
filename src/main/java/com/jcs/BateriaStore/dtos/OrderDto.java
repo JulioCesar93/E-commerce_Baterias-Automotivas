@@ -19,7 +19,7 @@ public class OrderDto {
     private Instant moment;
     private StatusOrder status;
 
-    public OrderDto(Order entity) {
+    public OrderDto (Order entity) {
         id = entity.getId();
         moment = entity.getMoment();
         status = entity.getStatus();

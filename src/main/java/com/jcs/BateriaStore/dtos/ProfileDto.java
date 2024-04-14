@@ -1,5 +1,6 @@
 package com.jcs.BateriaStore.dtos;
 
+import com.jcs.BateriaStore.entities.Profile;
 import java.io.Serializable;
 
 public class ProfileDto implements Serializable {
@@ -7,7 +8,8 @@ public class ProfileDto implements Serializable {
     private Long id;
     private String authority;
 
-    public ProfileDto() {}
+    public ProfileDto(Profile profile){
+    }
 
     public ProfileDto (Long id, String authority) {
         super();
@@ -30,5 +32,4 @@ public class ProfileDto implements Serializable {
     public void setAuthority(String authority) {
         this.authority = authority;
     }
-}
 }
