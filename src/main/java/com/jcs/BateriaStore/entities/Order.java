@@ -28,7 +28,7 @@ public class Order {
     @OneToOne(mappedBy = "order")
     private Payment payment;
 
-    @OneToMany(mappedBy = "id.order")
+    @OneToMany(mappedBy = "id_order")
     private Set<OrderItem> items = new HashSet<>();
 
     public Order(){}
