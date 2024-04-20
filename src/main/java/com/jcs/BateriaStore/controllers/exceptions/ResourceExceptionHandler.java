@@ -2,13 +2,10 @@ package com.jcs.BateriaStore.controllers.exceptions;
 
 import com.jcs.BateriaStore.services.exceptions.ExceptionBD;
 import com.jcs.BateriaStore.services.exceptions.ResourceNotFoundException;
-
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.boot.context.properties.bind.validation.ValidationErrors;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
-
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,7 +16,7 @@ import java.time.Instant;
 public class ResourceExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<StandardError> entityNotFound(ResourceNotFoundException e, HttpServletRequest request) {
+    public ResponseEntity<StandardError> entityNotFound(ResourceNotFoundException e, HttpServletRequest request){
         HttpStatus status = HttpStatus.NOT_FOUND;
         StandardError err = new StandardError();
         err.setTimestamp(Instant.now());
@@ -31,7 +28,7 @@ public class ResourceExceptionHandler {
     }
 
     @ExceptionHandler(ExceptionBD.class)
-    public ResponseEntity<StandardError> database(ExceptionBD e, HttpServletRequest request) {
+    public ResponseEntity<StandardError> database (ExceptionBD e, HttpServletRequest request) {
         HttpStatus status = HttpStatus.BAD_REQUEST;
         StandardError err = new StandardError();
         err.setTimestamp(Instant.now());
@@ -42,13 +39,13 @@ public class ResourceExceptionHandler {
         return ResponseEntity.status(status).body(err);
     }
 
-    @ExceptionHandler (MethodArgumentNotValidException.class)
-    public ResponseEntity<ValidationError> validation(MethodArgumentNotValidException e, HttpServletRequest request) {
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<StandardError> validation(MethodArgumentNotValidException e, HttpServletRequest request) {
         HttpStatus status = HttpStatus.UNPROCESSABLE_ENTITY;
-        ValidationErrors err = new ValidationErrors ();
+        StandardError err = new StandardError();
         err.setTimestamp(Instant.now());
         err.setStatus(status.value());
-        err.setError("Validation exception");
+        err.setError("Validation Exception");
         err.setMessage(e.getMessage());
         err.setPath(request.getRequestURI());
 
