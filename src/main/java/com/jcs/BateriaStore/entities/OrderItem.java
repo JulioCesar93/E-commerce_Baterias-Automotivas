@@ -9,11 +9,12 @@ import jakarta.persistence.Table;
 @Table(name = "tb_order_item")
 public class OrderItem {
 
+    @EmbeddedId
+    private OrderProdPgto id = new OrderProdPgto();
     private Integer quantity;
     private Double price;
 
-    @EmbeddedId
-    private OrderProdPgto id = new OrderProdPgto();
+    public OrderItem () {}
 
     public OrderItem(Order order, Product product, Integer quantity, Double price) {
         id.setOrder(order);

@@ -21,7 +21,7 @@ import java.util.Arrays;
 @Configuration
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
-    @Value("${security.oauth2.client.client-id}")
+    @Value("${security.oauth2.client.client-cod}")
     private String clientCod;
 
     @Value("${security.oauth2.client.client-secret}")
@@ -53,7 +53,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-                .withClient("ecommerce-baterias")
+                .withClient("ecommerceBaterias")
                 .secret(passwordEncoder.encode("bateria034"))
                 .scopes("read", "write")
                 .authorizedGrantTypes("password")

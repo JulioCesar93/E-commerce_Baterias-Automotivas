@@ -36,7 +36,7 @@ public class JwtTokenIntermediary implements TokenEnhancer {
         map.put("cpf", user.getCpf());
         map.put("birthDay", user.getBirthDay());
         map.put("phone", user.getPhone());
-        map.put("roles", user.getProfiles());
+        map.put("profiles", user.getProfiles());
 
         DefaultOAuth2AccessToken token = (DefaultOAuth2AccessToken) accessToken;
         token.setAdditionalInformation(map);
