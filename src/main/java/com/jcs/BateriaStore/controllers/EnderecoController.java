@@ -27,6 +27,13 @@ public class EnderecoController {
         return ResponseEntity.ok().body(list);
     }
 
+    //consulta por cep
+    @GetMapping("/viacep/{cep}")
+    public ResponseEntity<EnderecoDto> consultaCep(@PathVariable String cep) {
+        EnderecoDto dto = viaCepService.findByCep(cep);
+        return ResponseEntity.ok().body(dto);
+    }
+
     //busca endereco pelo id do usurio => /find?userId=2
     @GetMapping("/find")
     public ResponseEntity<List<EnderecoDto>> getByUserId(@RequestParam("userId") Long userId) {
