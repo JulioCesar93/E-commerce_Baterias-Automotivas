@@ -4,12 +4,12 @@ import com.jcs.BateriaStore.controllers.exceptions.FieldMessage;
 import com.jcs.BateriaStore.dtos.UserUpdateDto;
 import com.jcs.BateriaStore.entities.User;
 import com.jcs.BateriaStore.repositories.UserRepository;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

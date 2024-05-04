@@ -8,13 +8,18 @@ public class ProfileDto implements Serializable {
     private Long id;
     private String authority;
 
-    public ProfileDto(Profile profile){
-    }
+    public ProfileDto(){}
 
     public ProfileDto (Long id, String authority) {
         super();
         this.id = id;
         this.authority = authority;
+    }
+
+    public ProfileDto(Profile profile) {
+        super();
+        id = profile.getId();
+        authority = profile.getAuthority();
     }
 
     public Long getId() {

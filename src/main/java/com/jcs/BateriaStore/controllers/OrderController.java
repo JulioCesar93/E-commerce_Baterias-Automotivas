@@ -2,12 +2,12 @@ package com.jcs.BateriaStore.controllers;
 
 import com.jcs.BateriaStore.dtos.OrderDto;
 import com.jcs.BateriaStore.services.OrderService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 

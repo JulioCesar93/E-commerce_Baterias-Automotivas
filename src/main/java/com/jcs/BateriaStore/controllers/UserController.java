@@ -4,12 +4,12 @@ import com.jcs.BateriaStore.dtos.UserDto;
 import com.jcs.BateriaStore.dtos.UserInsertDto;
 import com.jcs.BateriaStore.dtos.UserUpdateDto;
 import com.jcs.BateriaStore.services.UserService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 

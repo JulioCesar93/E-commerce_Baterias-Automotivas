@@ -1,9 +1,6 @@
 package com.jcs.BateriaStore.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +14,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Endereco implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cep;
     private String logradouro;
@@ -29,4 +28,3 @@ public class Endereco implements Serializable {
     @JoinColumn(name = "user_id")
     private User user;
 }
-

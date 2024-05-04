@@ -2,12 +2,13 @@ package com.jcs.BateriaStore.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jcs.BateriaStore.entities.User;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -22,7 +23,9 @@ public class UserDto implements Serializable {
     private Long id;
     @NotBlank
     private String firstName;
+    @NotBlank
     private String lastName;
+    @NotBlank
     private String cpf;
     private String phone;
     @JsonFormat(pattern="dd/MM/yyyy")
