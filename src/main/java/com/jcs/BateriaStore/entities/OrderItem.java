@@ -1,9 +1,10 @@
 package com.jcs.BateriaStore.entities;
 
 import com.jcs.BateriaStore.entities.Pgto.OrderProdPgto;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_order_item")
@@ -16,7 +17,7 @@ public class OrderItem {
 
     public OrderItem () {}
 
-    public OrderItem(Order order, Product product, Integer quantity, Double price) {
+    public OrderItem (Order order, Product product, Integer quantity, Double price) {
         id.setOrder(order);
         id.setProduct(product);
         this.quantity = quantity;

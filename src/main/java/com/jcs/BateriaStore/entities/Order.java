@@ -1,8 +1,9 @@
 package com.jcs.BateriaStore.entities;
 
 import com.jcs.BateriaStore.entities.enums.StatusOrder;
-import jakarta.persistence.*;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "tb_order")
-public class Order {
+public class Order implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,10 +26,10 @@ public class Order {
     @JoinColumn(name = "client_id")
     private User client;
 
-    @OneToOne(mappedBy = "order")
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private Payment payment;
 
-    @OneToMany(mappedBy = "id_order")
+    @OneToMany(mappedBy = "id.order")
     private Set<OrderItem> items = new HashSet<>();
 
     public Order(){}

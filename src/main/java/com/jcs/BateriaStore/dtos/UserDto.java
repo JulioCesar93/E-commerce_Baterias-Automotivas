@@ -25,7 +25,7 @@ public class UserDto implements Serializable {
     private String firstName;
     @NotBlank
     private String lastName;
-    @NotBlank
+
     private String cpf;
     private String phone;
     @JsonFormat(pattern="dd/MM/yyyy")
@@ -35,7 +35,7 @@ public class UserDto implements Serializable {
     private String email;
 
     Set<ProfileDto> profiles = new HashSet<>();
-    Set<EnderecoDto> enderecoList = new HashSet<>();
+    //Set<EnderecoDto> enderecoList = new HashSet<>();
 
     public UserDto (User entity) {
         id = entity.getId();
@@ -46,6 +46,6 @@ public class UserDto implements Serializable {
         birthDay = entity.getBirthDay();
         phone = entity.getPhone();
         entity.getProfiles().forEach(profile -> this.profiles.add(new ProfileDto(profile)));
-        entity.getEnderecoList().forEach(endereco -> this.enderecoList.add(new EnderecoDto(endereco)));
+        //entity.getEnderecoList().forEach(endereco -> this.enderecoList.add(new EnderecoDto(endereco)));
     }
 }

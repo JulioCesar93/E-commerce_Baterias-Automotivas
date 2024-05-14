@@ -1,14 +1,13 @@
 package com.jcs.BateriaStore.services;
 
-import com.jcs.BateriaStore.dtos.*;
-import com.jcs.BateriaStore.entities.Endereco;
-import com.jcs.BateriaStore.entities.Profile;
+import com.jcs.BateriaStore.dtos.UserDto;
+import com.jcs.BateriaStore.dtos.UserInsertDto;
+import com.jcs.BateriaStore.dtos.UserUpdateDto;
 import com.jcs.BateriaStore.entities.User;
 import com.jcs.BateriaStore.repositories.ProfileRepository;
 import com.jcs.BateriaStore.repositories.UserRepository;
 import com.jcs.BateriaStore.services.exceptions.ExceptionBD;
 import com.jcs.BateriaStore.services.exceptions.ResourceNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -102,11 +102,10 @@ public class UserService implements UserDetailsService {
         entity.setCpf(dto.getCpf());
         entity.setBirthDay(dto.getBirthDay());
 
-        entity.getProfiles().clear();
-            for (ProfileDto profileDto : dto.getProfiles()) {
-            Profile profile = profileRepository.getReferenceById(profileDto.getId());
-            entity.getProfiles().add(profile);
-        }
+        //entity.getProfiles().clear();
+        //    for (ProfileDto profileDto : dto.getProfiles()) {
+        //    Profile profile = profileRepository.getReferenceById(profileDto.getId());
+        //    entity.getProfiles().add(profile);}
     }
 
     @Override

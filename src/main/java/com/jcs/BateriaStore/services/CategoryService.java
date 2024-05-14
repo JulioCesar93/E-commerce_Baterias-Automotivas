@@ -5,7 +5,6 @@ import com.jcs.BateriaStore.entities.Category;
 import com.jcs.BateriaStore.repositories.CategoryRepository;
 import com.jcs.BateriaStore.services.exceptions.ExceptionBD;
 import com.jcs.BateriaStore.services.exceptions.ResourceNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -14,17 +13,21 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
+
 @Service
 public class CategoryService {
 
     @Autowired
     CategoryRepository repository;
 
+    @Transactional(readOnly = true)
     public Page<CategoryDto> findAllPaged(Pageable pageable) {
         Page<Category> page = repository.findAll(pageable);
         return page.map(x -> new CategoryDto(x));
     }
 
+    @Transactional
     public CategoryDto insert(CategoryDto dto) {
         Category entity = new Category();
 

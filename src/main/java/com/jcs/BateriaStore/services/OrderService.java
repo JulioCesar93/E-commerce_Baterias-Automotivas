@@ -5,18 +5,20 @@ import com.jcs.BateriaStore.entities.Order;
 import com.jcs.BateriaStore.repositories.OrderRepository;
 import com.jcs.BateriaStore.services.exceptions.ExceptionBD;
 import com.jcs.BateriaStore.services.exceptions.ResourceNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class OrderService {
 
     @Autowired

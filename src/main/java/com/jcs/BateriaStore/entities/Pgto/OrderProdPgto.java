@@ -2,13 +2,13 @@ package com.jcs.BateriaStore.entities.Pgto;
 
 import com.jcs.BateriaStore.entities.Order;
 import com.jcs.BateriaStore.entities.Product;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Embeddable

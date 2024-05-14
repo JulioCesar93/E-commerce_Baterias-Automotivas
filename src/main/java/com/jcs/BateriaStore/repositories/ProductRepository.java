@@ -10,7 +10,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
@@ -23,8 +22,4 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT obj FROM Product obj WHERE "
             + "(:notFavorite = false OR obj.favorite = false) ")
     List<Product> find(boolean notFavorite);
-
-    Optional<Product> findById(Long id);
-    Product save(Product entity);
-    void deleteById(Long id);
 }

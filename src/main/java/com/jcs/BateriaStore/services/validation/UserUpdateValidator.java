@@ -4,12 +4,12 @@ import com.jcs.BateriaStore.controllers.exceptions.FieldMessage;
 import com.jcs.BateriaStore.dtos.UserUpdateDto;
 import com.jcs.BateriaStore.entities.User;
 import com.jcs.BateriaStore.repositories.UserRepository;
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +23,7 @@ public class UserUpdateValidator implements ConstraintValidator<UserUpdateValid,
     private UserRepository repository;
 
     @Override
-    public void initialize(UserUpdateValid validAll) {
+    public void initialize (UserUpdateValid validAll) {
     }
 
     public boolean isValid (UserUpdateDto dto, ConstraintValidatorContext context) {
@@ -41,7 +41,8 @@ public class UserUpdateValidator implements ConstraintValidator<UserUpdateValid,
 
         for (FieldMessage e : list) {
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate(e.getMessage()).addPropertyNode(e.getFieldName())
+            context.buildConstraintViolationWithTemplate(e.getMessage())
+                    .addPropertyNode(e.getFieldName())
                     .addConstraintViolation();
         }
         return list.isEmpty();

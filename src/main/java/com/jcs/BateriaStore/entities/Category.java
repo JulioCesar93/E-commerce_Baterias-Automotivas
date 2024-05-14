@@ -1,7 +1,8 @@
 package com.jcs.BateriaStore.entities;
 
-import jakarta.persistence.*;
 import lombok.*;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -15,7 +16,7 @@ import java.util.Set;
 public class Category implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
