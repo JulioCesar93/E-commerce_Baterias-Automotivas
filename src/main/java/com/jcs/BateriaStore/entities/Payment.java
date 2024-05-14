@@ -12,7 +12,7 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "HORÁRIO DIVERGENTE")
+    @Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private Instant moment;
 
     @OneToOne

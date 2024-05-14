@@ -18,7 +18,7 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "HORÁRIO DIVERGENTE")
+    @Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private Instant moment;
     private StatusOrder status;
 

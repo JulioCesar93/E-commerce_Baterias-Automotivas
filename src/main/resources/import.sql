@@ -25,7 +25,7 @@ INSERT INTO product_category(category_name) VALUES ('Estacionária');
 -- -----------------------------------------------------
 -- Carros
 -- -----------------------------------------------------
-INSERT INTO product (sku, name, description, image_url, favorite, units_in_stock, unit_price, category_id,date_created) VALUES ('60-Amperes', 'Corsa Sedã-Corsa Hatch', 'Bateria para linha Corsa todos os modelos', 'assets/images/products/60-AMP/Bateria-Corsa.png', true, 8, 319.99, 1, NOW());
+INSERT INTO product (sku, name, description, image_url, favorite, units_in_stock, unit_price, category_id,date_created) VALUES ('60-Amperes', 'Corsa Sedan-Corsa Hatch', 'Bateria para linha Corsa todos os modelos', 'assets/images/products/60-AMP/Bateria-Corsa.png', true, 8, 319.99, 1, NOW());
 
 -- -----------------------------------------------------
 -- Motos
@@ -50,15 +50,14 @@ INSERT INTO state(name,country_id) VALUES ('Acre',1),('Alagoas',1),('Amapá',1),
 -- -----------------------------------------------------
 -- Endereço
 -- -----------------------------------------------------
-INSERT INTO tb_address(cep,logradouro,complemento,bairro,localidade,uf, user_id) VALUES ('38408-239','Rua Dolorita Alves Nascimento', 'casa A', 'Parque América', 'Uberlandia', 'MG',1);
-INSERT INTO tb_address(cep,logradouro,complemento,bairro,localidade,uf, user_id) VALUES ('38410-239','Rua da Professora', 'casa frente', 'Planalto', 'Uberlandia', 'MG',2);
+INSERT INTO tb_endereco(cep,logradouro,complemento,bairro,localidade,uf, user_id) VALUES ('38408-239','Rua Dolorita Alves Nascimento', 'casa A', 'Parque América', 'Uberlandia', 'MG',1);
+INSERT INTO tb_endereco(cep,logradouro,complemento,bairro,localidade,uf, user_id) VALUES ('38410-239','Rua da Professora', 'casa frente', 'Planalto', 'Uberlandia', 'MG',2);
 
 -- -----------------------------------------------------
 -- Orders
 -- -----------------------------------------------------
 INSERT INTO tb_order (moment, status, client_id) VALUES (TIMESTAMP WITH TIME ZONE '2024-04-29T13:00:00Z', 1, 1);
 INSERT INTO tb_order (moment, status, client_id) VALUES (TIMESTAMP WITH TIME ZONE '2024-04-29T15:50:00Z', 3, 2);
-INSERT INTO tb_order (moment, status, client_id) VALUES (TIMESTAMP WITH TIME ZONE '2024-04-26T14:20:00Z', 0, 1);
 
 -- -----------------------------------------------------
 -- Order Item
